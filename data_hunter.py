@@ -1,9 +1,8 @@
 import requests
+import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
-GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
-CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
 
 def __get_most_recent(num: int) -> list[str]:
 
@@ -12,8 +11,8 @@ def __get_most_recent(num: int) -> list[str]:
     options.add_argument('--disable-gpu')
     options.add_argument('--no-sandbox')
     options.add_argument('--headless')
-    options.binary_location = GOOGLE_CHROME_PATH
-    driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH  ,options=options)
+    options.binary_location = os.environ.get('GOOGLE_CHROME_PATH') 
+    driver = webdriver.Chrome(executable_path=os.environ.get('CHROMEDRIVER_PATH')  ,options=options)
     driver.get('https://www.coingecko.com/en/coins/recently_added')
 
     table = driver.find_elements(by=By.CSS_SELECTOR, value='table tbody tr td a')
