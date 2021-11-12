@@ -1,8 +1,14 @@
+import os
 import tweepy
 import data_hunter
 
-auth = tweepy.OAuthHandler('52kr4YqZRAoMknOS3mj2FAZsX', '3Kar3ZUJW3T5QQ0AIfq3SfuGHrK6trJJRC6kvwY63lCJChi6LH')
-auth.set_access_token('1451325600858320904-NBHM5LRZEf39rXl6JnlWQcvHGb52si', 'kYfqKNcaleBdQqM1ndZ5FKAPMsLO54yqjPPThMHOagHaL')
+API_KEY = os.environ.get('API_KEY')
+API_SECRET = os.environ.get('API_SECRET')
+ACCESS_TOKEN = os.environ.get('ACCESS_TOKEN')
+ACCESS_SECRET = os.environ.get('ACCESS_SECRET')
+
+auth = tweepy.OAuthHandler(API_KEY, API_SECRET)
+auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
 api = tweepy.API(auth)
 
 
