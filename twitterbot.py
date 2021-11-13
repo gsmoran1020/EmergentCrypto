@@ -26,7 +26,12 @@ def post_tweet():
 #crypto #altcoin
     """
 
-    api.update_status(content, card_uri='tombstone://card')
+    try:
+        api.update_status(content, card_uri='tombstone://card')
+    except tweepy.errors.Forbidden as forbidden:
+        if '187' in forbidden.api_codes:
+            print('That tweet has already been made')
+            pass
 
 
 post_tweet()
