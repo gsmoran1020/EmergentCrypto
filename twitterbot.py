@@ -29,7 +29,7 @@ def post_tweet():
     try:
         api.update_status(content, card_uri='tombstone://card')
     except tweepy.errors.Forbidden as forbidden:
-        if '187' in forbidden.api_codes:
+        if 187 in forbidden.api_codes:
             print('That tweet has already been made')
             pass
 
