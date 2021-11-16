@@ -84,14 +84,17 @@ def create_content():
 #crypto #altcoin
     """
 
-    with open('lastpost.txt', 'r+') as lastpost:
+    with open('lastpost.txt', 'r') as lastpost:
         prev_content = lastpost.read()
-        if prev_content == content:
-            return ''
-        else:
-            lastpost.writelines(content)
-            return content
+    
+    if prev_content == content:
+        return ''
+    else:
 
+        with open('lastpost.txt', 'w') as lastpost:
+            lastpost.write(content)
+            
+        return content
 
 
 def post_tweet(content: str):
