@@ -1,4 +1,5 @@
 # EmergentCrypto
+# (Unfortunately this bot has been banned. Currently working on replacing it. Will update this repo once completed.)
 The EmergentCrypto Bot project is a python script that manages a twitter account and makes posts about the latest crypto currencies being listed on https://www.coingecko.com/en for interested twitter users to stay up to date and see the latest tokens. 
 
 ## How It Works
